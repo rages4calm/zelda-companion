@@ -1,0 +1,33 @@
+{
+  "version": 1,
+  "resources": {
+    "engine/other/3x5_font.png": {
+      "sha256": "557ae1e3455cb530ab99bafee5f0c609f244c82ad6afe6e32d60e95d897959b4",
+      "provenance": "Generic MIT extractor font from pinned snesrev engine; not game art."
+    },
+    "engine/assets/palette_usage.bin": {
+      "sha256": "15951ed044d5354b9033e4e5c663e1299c74b568c10f21c08ecee08d6c0f7bbf",
+      "provenance": "Pinned upstream extractor metadata, not a generated asset pack."
+    },
+    "engine/src/platform/win32/triforce.ico": {
+      "sha256": "0578a42a9e772527b478e77663d7c1c69c47233ec019a5ef7a39bd26ffdd4116",
+      "provenance": "Upstream Windows application icon; original software resource and license retained."
+    },
+    "repaired-launcher/Zelda 3 Launcher/RadzPrower.ico": {
+      "sha256": "fb1d68168754b45f761588e5a20ff69e4c8e1bd2d9c08de07dd27cb536c13637",
+      "provenance": "Original RadzPrower software-brand icon, MIT upstream source."
+    },
+    "repaired-launcher/Zelda 3 Launcher/\u042fP Flat Blue.ico": {
+      "sha256": "685e7478e0f2f04f2dec09374b89250fe0f689130ffe61560e457e7473866dce",
+      "provenance": "Original RadzPrower software-brand icon, MIT upstream source."
+    },
+    "docs/images/online.png": {
+      "sha256": "c958c5bb16393cb098a3eb3db815f70a29c1b5097d67cd60a94f5d3bab641224",
+      "provenance": "Actual owned v0.3.1 native launcher setup capture, demonstration seed, no game pixels or active room invitation."
+    },
+    "docs/images/randomizer.png": {
+      "sha256": "3fbbd7604f7b3106ed791979a23dfff594343cebcb3a7c2f189ef74cd5b5886c",
+      "provenance": "Actual owned v0.3.1 native launcher library capture after bounded private game launch, no game pixels."
+    }
+  }
+}

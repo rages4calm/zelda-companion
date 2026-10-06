@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Setup and usage guide
+    url: https://github.com/rages4calm/zelda-companion/blob/main/USER-GUIDE.md
+    about: Read the launcher and Internet-room instructions.
+  - name: Security reporting
+    url: https://github.com/rages4calm/zelda-companion/security
+    about: Report suspected vulnerabilities privately.

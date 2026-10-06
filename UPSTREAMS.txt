@@ -1,0 +1,40 @@
+snesrev/zelda3: 45a149d8b4bb8098f53d1009f76e76e7d8b79bbf
+https://github.com/snesrev/zelda3
+
+snesrev/glsl-shaders: 46a00f15e09ffbd4fba46ab41f0653aeea918fd1
+https://github.com/snesrev/glsl-shaders
+Included shader: xbrz/xbrz-freescale.glslp and its unmodified GLSL source.
+
+RadzPrower/Zelda-3-Launcher: 9984610476788837b27cc0b930eb9ffa727cf8b0
+Repaired local net8 source, retained in repaired-launcher/ (Source/repaired-launcher in the ZIP).
+https://github.com/RadzPrower/Zelda-3-Launcher
+
+SDL 2.28.2: https://github.com/libsdl-org/SDL/releases/tag/release-2.28.2
+Python embeddable 3.11.9: https://www.python.org/downloads/release/python-3119/
+Pillow 12.3.0 and PyYAML 6.0.3: licenses accompany their local packages.
+.NET 10: self-contained runtime with its LICENSE and THIRD-PARTY-NOTICES.
+
+cloudflared 2026.9.3, unmodified Windows amd64 binary:
+https://github.com/cloudflare/cloudflared/releases/tag/2026.9.3
+SHA-256: f096265ec2fcbe9bb6e2d64268db167ced3fcbb83d894bdb9e2fcdb26f2ea7e2
+Apache 2.0 LICENSE and upstream metadata are included in Tools/.
+Cloudflare third-party copyright notices, included verbatim in Tools/:
+https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-tunnel/downloads/copyrights/
+
+Networking was newly implemented for this edition. No ALttPO or Z3R multiplayer
+code is included; those projects were reference research only.
+
+ALTTPO research reference, not bundled source:
+https://github.com/alttpo/alttpo
+Inspected commit 4efca82cd85142e8f13c9e032d09eb70937a438c (unstable).
+ROMMapping/SyncableItem/LocalGameState informed address and exception research.
+The companion C#/native C implementation is original; no ALTTPO files are shipped.
+
+Public source/package target: Windows x64. The unused upstream Switch icon with
+game sprite art is omitted. Extractor source and generic software resources retain
+their upstream notices. No ROM, generated asset pack, save or audio pack is included.
+
+ALttPR compatibility reference, no copied randomizer code:
+https://github.com/sporchia/alttp_vt_randomizer
+https://alttpr.com/en/start
+Native Treasure Shuffle v1 is independently authored, with fixed required progression.

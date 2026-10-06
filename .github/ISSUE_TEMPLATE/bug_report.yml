@@ -1,0 +1,41 @@
+name: Bug report
+description: Report a reproducible launcher, native-game or co-op problem.
+title: "[Bug] "
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: "Please do not upload ROMs, extracted assets, soundtracks, saves, private invitations or unredacted personal logs. For vulnerabilities use the Security tab."
+  - type: input
+    id: version
+    attributes:
+      label: Companion version
+      placeholder: "0.3.1"
+    validations:
+      required: true
+  - type: input
+    id: environment
+    attributes:
+      label: Windows version and hardware
+      description: Include GPU/controller only when relevant. Do not include your username or IP.
+    validations:
+      required: true
+  - type: dropdown
+    id: area
+    attributes:
+      label: Where does this happen?
+      options: [ROM setup, Solo game, Internet co-op, LAN co-op, Randomizer, Controls, Music, Other]
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Steps, expected behavior and actual result
+      description: For co-op include roles, player count, same/separate PCs and sharing/combat choices. For a seed include its text/options if useful.
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Sanitized error text and tested workarounds
+      description: Remove paths containing your username, tokens, room codes and addresses before posting.

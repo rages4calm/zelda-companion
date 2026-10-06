@@ -1,0 +1,215 @@
+Zelda Companion 0.2.2 guided community edition - validation record
+2026-10-03, Windows x64, loopback and public WSS testing with clients on one PC
+
+Builds: native TCC engine with SDL 2.28.2 / ws2_32; companion and relay .NET 10
+Release, self-contained Windows x64. Existing upstream M_PI / FORCEINLINE compiler
+macro warnings are harmless and remain visible in build output.
+
+Protocol integration: 15 automated checks passed on loopback, and all 15 passed
+again through a real Cloudflare Quick Tunnel public WSS address.
+- Wrong length, out-of-range tool values, unknown slots and reserved fields
+- Cryptographic room code / slot assignment
+- Assets and sharing-choice mismatch, third player and unknown room rejection
+- Valid frame relay, stale sequence discard, slot-spoof rejection
+- Full UDP -> client WebSocket -> relay -> client WebSocket -> UDP path
+- Local companion token rewrite and incorrect-token rejection
+
+Native C bridge: 23 checks passed against the actual online.c implementation.
+- Loopback socket setup / cleanup
+- Tool grant deferred during menus; hookshot applied during stable gameplay
+- Exhaustive RAM comparison: only the allowlisted hookshot address changed
+- Existing tool retained when peer advertises no ownership
+- Invalid value, token, sequence, slot, packet length and source-port rejection
+- Different-area avatar hiding and off-screen coordinate clipping
+- Green player-one / blue player-two clothing palette
+- Full RAM unchanged, including red-armor ownership/protection
+- Skin/hair/glove/boot and other palette entries unchanged
+- Entire CGRAM restored after each drawn frame, before saving
+- Link palette swap handling, no overrides in menus or mode-7 map
+- No override without an active online bridge
+
+Two actual native game processes:
+- Private copies of the same reference checkpoint, with audio muted for testing
+- 207 / 144 player frames sent, 144 / 154 received in the recorded test
+- Player B movement changed world coordinates from y=1579 to y=1644
+- Player A rendered the remote Link at the correct position with cyan marker
+- Inventory opens and closes; other avatar disappears during menus
+- Closing player B removes the avatar after its timeout; A keeps running
+- Both processes exit 0, no crash/error logs
+- Actual avatar tiles/palette decoded, visually inspected alongside game capture
+- New 10-second bot recording: green player one and blue player two in both views
+  while moving and swinging swords. Recorded frames confirm each client broadcasts
+  its colored avatar through the normal relay path.
+
+Coverage limits:
+This is a short functional test, not a full playthrough or a performance benchmark.
+It did not use two physical computers or packet-loss injection. The older native
+bot recording used loopback; the newer public WSS test routes both clients through
+Cloudflare's Internet edge. Tool tests validate the native memory grant path, not a
+two-person campaign with every item pickup. Normal campaign save persistence and
+every story transition still need longer gameplay testing. Full world/combat/story
+sync is intentionally absent and is not claimed as passing.
+
+Fresh setup / redesigned actual WinForms UI: 25 functional/setup checks and
+11 real-window capture assertions passed (36 harness assertions total).
+- Empty game folder has no compiled assets; incorrect ROM rejected before setup
+- Valid user ROM extracted in 4.56 seconds using only the bundled Python tools
+- Fresh asset SHA-256 exactly matches the repaired installation's asset file
+- Actual Solo, Host, Create room, Disconnect and failed Join button paths tested
+- Solo and online games stay running and close normally (exit 0)
+- Online native game sends frames; room code is displayed
+- Online profile is separate, fullscreen settings copied and save backup read back
+- Disconnect leaves the game running; failed Join restores usable controls
+- Audio is enabled in the delivered game configuration (tests alone were muted)
+- First-run ROM setup action, disabled launch and six visible guide topics
+- Default Internet host creates a loopback relay and checksum-verified tunnel
+- Copy invitation contains a public WSS address, room code and matching settings
+- A second client receives actual native game frames through that public address
+- Disconnect stops the owned tunnel and local relay while the native game stays open
+- Earlier LAN-mode checks passed with a LAN invitation and automatic local relay
+- Visible failed-join feedback and recovery of controls
+- Sound / reduced-flash options saved, display preference remembered locally
+- No room codes persisted in launcher preferences
+- First-run, ready Play, smaller Play, Host, Join, connected room, join error,
+  Guide, current controls, Settings and Activity pages captured from the app's HWND
+
+Visual coverage is at the current Windows display scale and two window sizes.
+The launcher uses native DPI scaling and fits the working area on first show;
+different Windows DPI settings have not been tested on separate physical monitors.
+
+The 23 native bridge checks cover the unchanged 0.1.1 native implementation.
+The 0.2.0 change added guided UI and automatic Internet transport. The public route
+is proven with two clients on this PC; long sessions and two separate computers
+remain untested. Quick Tunnels are a third-party test service with no uptime promise.
+
+0.2.1 visual controls editor:
+- 25 functional checks plus 7 actual-window capture checks passed (32 assertions).
+- Actual keyboard message received by capture window and actual editor cell path.
+- Process-local SDL virtual controller recognition, held-button combination,
+  trigger detection and owned-device removal. Physical models were not exercised.
+- Save and reload keyboard/controller/state mappings; duplicate detection and swap.
+- Twenty save-state slots exposed, settings backup, unrelated sound/graphics kept.
+- External concurrent edits refused before writing; actual Save controls button.
+- Personal mappings do not change the online gameplay compatibility hash.
+- Changing category starts at the first action and clears stale edit feedback.
+- Ten native parser checks passed against the bundled engine's config.c, proving
+  custom sword key/controller input, Ctrl hotkey, bumper+Start pause, trigger+Back
+  state saving, modifier requirements, ordinary Start and existing state hotkeys.
+- Editor, remapped action, shortcuts, save states, keyboard capture, controller
+  combination and disconnected-controller fallback captured from their own HWNDs.
+- Three additional real-window previews cover Settings and the three-column
+  controls guide at the normal and smaller launcher sizes.
+Controller availability depends on the model and Windows/SDL recognition. The
+virtual input tests do not certify every USB/Bluetooth controller or physical pad.
+
+0.2.2 MSU-1 soundtrack integration, 2026-10-04 (historical):
+- 28 functional importer/configuration/UI checks passed, plus three real-window
+  music previews at the normal and smaller sizes (31 recorded checks/captures).
+- Real creator-listed JUD6MENT Orchestral 2023 ZIP: 35 PCM files validated and
+  hashed; all commonly used standard tracks covered. The .msu video is excluded.
+- ZIP/folder import, duplicate avoidance, missing-file repair with a retained
+  previous copy, malformed headers/loops/OPUZ ranges/mixed sets/unsafe ZIP paths
+  rejected; cancelled/failed imports preserve installed packs.
+- Exact settings backup, failed-commit rollback, preserved controls/graphics,
+  standard PCM/OPUZ-Deluxe sample rate selection (OPUZ range fixture only), original
+  music restoration, actual Apply button, personal online compatibility unchanged.
+- Online profile and relocated portable-folder paths resolve the same local music.
+- Eleven checks passed against the actual native parser and PCM audio player:
+  imported overworld track opened/mixed to non-silent stereo output, looped, SPC
+  suppressed during MSU, missing track fell back to SPC, disable restored SPC.
+  Unused Opus decode and unrelated DSP/SPC rendering functions are stubbed in this
+  focused test; no OPUZ decode/playthrough claim is made.
+- Both delivered native game executables ran for nine seconds in isolated save
+  folders, loaded the real title PCM, and closed normally (exit 0), with no MSU
+  read/decode/frequency or audio-open errors. Installed game files stayed unchanged.
+- No full soundtrack playthrough, hardware output recording, long audio session
+  or full OPUZ/Deluxe music-pack test was completed. Original engine is unchanged.
+
+The clean release ZIP is made from explicit software source/runtime files before
+ROM setup. Manifest and forbidden-extension checks exclude ROMs, compiled assets,
+reference save states, downloaded music and private captures. Generic 3x5 extractor font is included
+because it is a software tool asset, not an image extracted from the ROM.
+
+0.3.0 eight-player co-op extension, 2026-10-04:
+- 51 protocol/network assertions passed locally and separately through a live
+  public Cloudflare WSS tunnel with eight clients on this PC. Tested matching
+  assets/settings/sharing choices, old-release rejection, ninth-player rejection,
+  authenticated names, fair per-peer fanout, roster departure, sequence/epoch
+  handling, retained acquisition/world snapshots, typed bounds and compression.
+- Eight actual native engine processes with real private game assets and reference
+  saves exchanged 300-376 outgoing frames and 2147-2478 incoming frames each.
+  Scripted keyboard movement was recorded on owned game windows; all exited 0.
+  Removing the eighth player changed remaining rosters to seven. The short private
+  GIF is a scripted local demonstration, not autonomous AI play or a campaign test.
+- 60 focused native checks passed against online.c and the actual engine's
+  Sprite_MiniMoldorm_Recoil function extracted from corresponding sprite.c.
+  Coverage: eight cosmetic tunics and exact palette/RAM restoration, pending
+  lantern/menu grants, equipment graphics callbacks, bottle/heart/gear/reward
+  merges, private health/ammo/money, stale/invalid frame rejection, world-mask
+  and awakening exceptions, Unicode GDI name rendering, crowded-name placement,
+  framebuffer guards, bounded one-time contributed enemy damage, actual recoil
+  health/death transitions, leader handoff, matching area/visit and floor bounds.
+  Visual reload callbacks and unrelated enemy-specific effects are stubs in this
+  focused harness. The actual eight-engine recording covers avatar rendering,
+  not a native combat encounter or boss fight.
+- 21 owned-window launcher checks/captures passed: actual Internet Create button
+  with an automatically allocated port, seven additional public protocol peers,
+  eight authenticated roster entries, release/choice invitation, locked active
+  settings, default names on/combat off, saved-campaign selector, exact preserved
+  campaign fixture and backup, unsafe campaign path refusal, normal game exit,
+  small-window action visibility and all seven guide topics.
+  Launcher demo clients are explicitly synthetic; the host game is real.
+- Two bounded own visual rounds inspected native game nameplates and launcher
+  host/join/eight-player/guide states at 1000x760 and 940x720 client sizes.
+  The correction batch reduced/placed crowded labels outside the HUD and pinned
+  create/join actions below the scrolling form. A fresh finish reviewer returned
+  disposition: ship, no material fixes, scoped to those six current captures.
+- The user reported a successful connection with a friend on the prior 0.2.2
+  release. Version 0.3.0 multiple-physical-computer, long-latency, full-campaign,
+  boss/puzzle and reconnect scenarios remain unverified. Starlink-specific new
+  eight-player behavior is not independently certified by same-PC WSS tests.
+- Combat beta is off by default and limited to 32 allowlisted ordinary enemy
+  types. Bosses, NPCs, puzzle objects and projectiles remain independent; spawn
+  matching and follower motion can differ. No full multiplayer campaign claim.
+- Existing audio/control features are retained. Test demonstrations mute audio
+  deliberately. The clean software release enables audio, and personal music,
+  ROM/assets, controls and saves are protected by the update's hash audit.
+
+0.3.1 native Treasure Shuffle, 2026-10-05:
+- 22 generator/storage/relay checks passed, including 1,000 seeds across Balanced
+  and Surprise with heart-piece shuffling on/off. An independently constructed
+  allowed-byte mask checked every other byte in every output. Required gear,
+  keys, maps, compasses, all big chests, bombs/arrows and all other assets remained
+  byte-identical. Reward multisets and Balanced high-value groups were preserved.
+- Strict original-USA asset hash and revision checks, deterministic SHA-256
+  generation, Unicode-normalized seeds, identity/options separation, atomic seed
+  installation, repeat-generation save preservation and byte-exact backups.
+- Recipe export/import reproduced locally without bundled assets. Altered recipes,
+  unsupported versions, unsafe IDs, oversized inputs and changed seed files were
+  refused. Refusal preserved the existing saves. Original assets stayed unchanged.
+- Eight protocol clients accepted the actual matching generated-data hash. After
+  one left, an original-data client was refused in that same room.
+- Actual WinForms Generate seed, Use for online and Play selected seed controls
+  passed in an isolated installation. The unmodified native game started from its
+  seed folder, locked changes while running and exited normally. Same-room original
+  and seed campaign namespaces remained separate; continuing a seeded campaign
+  preserved saves. Original solo saves/assets stayed byte-identical.
+- Five private fixture seeds exercised the complete C engine's actual
+  OpenChestForItem function for all 168 chest-table entries (840 lookups), including
+  big/key cases. Its real Link_PerformOpenChest / Link_ReceiveItem path received
+  each cash/heart-piece chest reward (260 receipts). All four option combinations
+  were covered; each private instrumented engine exited 0. No shipping engine
+  code was changed by these tests.
+- Two bounded own native UI inspection rounds captured empty/generated/online/
+  after-play states at 1000x760 and the smaller 924x681 client size. Play selected
+  seed and Use for online actions are pinned below the scrolling form.
+- A fresh Impeccable finish reviewer returned disposition: ship, no material fixes,
+  scoped to those five captures, incumbent design and source/Guide copy. The review
+  verifies native UI fidelity and product honesty, not a campaign completion claim.
+- Protection is mandatory and intentionally narrow: 46 ordinary rupee chests,
+  or 52 with six chest heart pieces. No required-item, entrance, story, key,
+  enemy, boss or puzzle randomization. Full ALttPR patches are incompatible with
+  this native C engine and are not advertised as supported.
+- A full randomized solo or multiplayer campaign has not been played through.
+  These byte/receipt checks preserve the original progression route; they do not
+  certify arbitrary save-state rewinds or every pre-existing engine/co-op bug.

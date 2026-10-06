@@ -1,0 +1,25 @@
+name: Source checks
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  windows:
+    runs-on: windows-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-dotnet@a98b56852c35b8e3190ac28c8c2271da59106c68 # v6.0.0
+        with:
+          dotnet-version: '10.0.x'
+      - name: Audit tracked source and documentation
+        run: python scripts/audit_public.py --source .
+      - name: Build the Windows launcher
+        run: dotnet build Companion/Companion.csproj -c Release
+      - name: Build the relay
+        run: dotnet build Relay/Relay.csproj -c Release
+      - name: Run ROM-free protocol and compatibility tests
+        run: dotnet run --project Tests/Tests.csproj -c Release

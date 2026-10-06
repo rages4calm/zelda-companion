@@ -1,0 +1,123 @@
+ZELDA COMPANION 0.3.1 — START HERE
+
+THE FILE TO OPEN: Zelda Companion.exe
+Open it at the top level of the extracted folder, beside this guide.
+Game/ and Relay/ contain supporting programs. You don't start with those EXEs.
+
+FIRST LAUNCH
+1. Right-click the ZIP -> Extract All into a writable folder.
+   Keep all folders together. Do not run from inside the ZIP.
+2. Open Zelda Companion.exe. Runtimes and tools are bundled.
+3. On Play, choose your own original, unpatched USA .sfc or .smc ROM.
+   Assets are generated locally. No ROM is provided or downloaded.
+4. Choose a look. Smooth 1080p is recommended. Click Launch solo.
+5. Guide in the sidebar (or F1 in the launcher) explains setup and controls.
+
+DEFAULT CONTROLS
+Arrows: move. Z: sword. X: action/dash. A: equipped tool. S: map.
+Enter: inventory/start. Right Shift: select/save menu. Alt+Enter: fullscreen.
+Settings -> Configure controls opens the visual editor for keyboard and controller.
+Choose a category, click a binding, then press the key or button you want.
+Hold Ctrl/Alt/Shift for keyboard combinations. For a controller combination,
+hold the first button, press the second and release both. Save controls applies
+changes on the next game launch and backs up the previous settings.
+Restore defaults resets the draft; Discard changes leaves saved controls alone.
+Connect a compatible USB/Bluetooth controller; its name and live input appear.
+Button labels use Xbox names. The left stick also moves Link. Each online player
+can use different controls. No text-file editing is required for remapping.
+Current game mappings appear in Guide -> Controls & saving.
+Save in the game before closing its window. Then close the launcher.
+
+UPGRADED MUSIC (OPTIONAL)
+Choose Music -> Import ZIP for an A Link to the Past MSU-1 audio pack.
+Or extract a .7z/.rar pack and use Import folder. Only one track set per import.
+Find music packs opens the creator-listed Zeldix catalogue.
+Choose the imported soundtrack, then Use this soundtrack. Music volume controls
+its balance against game sound effects. Missing tracks use original music.
+Leave MSU Deluxe off unless the author specifies an extended Deluxe pack.
+No ROM patch, intro-video file, file renaming or INI editing is needed.
+Changes apply on the next launch. Close the game before changing music.
+Original SNES music switches back; imported packs remain in your library.
+Packs live in UserData/Soundtracks and work in both solo and online campaigns.
+Each player can use different music. Settings are backed up when saving a choice.
+The clean software ZIP includes no downloaded soundtrack; friends add their own.
+
+RANDOMIZER: TREASURE SHUFFLE
+Set up your original USA ROM, then choose Randomizer in the sidebar.
+Enter a number or phrase, choose Balanced or Surprise, then Generate seed.
+Play selected seed starts an adventure with its own saves. Play -> Launch solo
+still opens your original game. The optional checkbox includes chest heart pieces.
+Progression protection is ALWAYS ON: required equipment, all keys, maps,
+compasses, big chests, bombs, arrows, entrances and story events stay original.
+Only rupee and optional heart-piece chest rewards move. Reward totals stay intact.
+For friends: Export recipe, send the .z3seed.json file, and have them Import recipe.
+Everyone uses their own USA game data. Choose Use for online and the same seed.
+Different seeds are refused; each seed keeps separate online campaigns and saves.
+These native seeds are not full ALttPR seeds. ALttPR patched ROMs are incompatible.
+A full randomized campaign has not been played through. See RANDOMIZER.md and
+Guide -> Randomizer & progression for the scope and verified protections.
+
+UP TO EIGHT PLAYERS OVER THE INTERNET (INCLUDING STARLINK)
+Everyone needs 0.3.1, their own ROM and matching adventure/look/gameplay settings,
+shared-progress and combat choices. Older two-player releases cannot join.
+Host: Online -> Host a room -> Internet · automatic -> enter your name.
+Choose a new or continued online campaign, then Create room & play.
+Copy invitation and privately send it to friends. Keep the host launcher open.
+Friend: Online -> Join a room -> enter name, relay address and room code.
+Select your online campaign, match the invitation's choices, then Join room & play.
+No account, router changes, DMZ, port forwarding, VPN or GitHub tool is needed.
+Cloudflare carries co-op traffic. This free testing service has no uptime guarantee.
+Closing the host's connection ends the link; create a new invitation to reconnect.
+Meet in the same area, world and dungeon floor. Names are shown above the Links.
+Eight slot colors: green, blue, red, purple, gold, cyan, rose and silver.
+The roster lists players and where they are. Show player names is a personal option.
+Same network / LAN is optional for one network. Permanent relays: README.md.
+
+CONTINUE YOUR ONLINE ADVENTURE
+Online saves are separate from solo saves. Save normally before closing.
+When a room expires, create/join a new room and choose Continue in the campaign
+selector. Each player selects their own corresponding adventure. Dates help
+identify saved campaigns; the last choice is remembered. Saves are backed up
+before launch. Room expiration does not erase your campaign.
+
+CO-OP FEATURES & LIMITS
+Share equipment & campaign progress merges permanent tools, gear upgrades,
+empty bottle ownership, health capacity/piece progress, maps/compasses/big keys,
+pendants, crystals, explored areas, persistent doors and story milestones.
+Received progress stays in the online save. A shared lantern is in inventory
+after dialogue closes; it does not force a held/equipped animation.
+Current health, magic, ammo, rupees, small keys, chest and bottle contents,
+selected tool and local saves stay personal. Heart totals converge to the
+furthest collected total; different simultaneous pieces are not added together.
+Opening scripts and water-reset exceptions protect gameplay. Some world changes
+need an area re-entry. Stay at similar progression and use trusted friends.
+Shared enemy combat is optional and OFF by default. It synchronizes 32 ordinary
+enemy types in the same area/floor. Bosses, NPCs, puzzles and projectiles stay
+independent; spawns and timing may differ and movement may jitter.
+This is not complete campaign-wide multiplayer. No PvP, chat, player collision,
+reliable depth occlusion, anti-cheat or automatic reconnect.
+Guide -> Co-op features & limits explains details. Validation.txt records tests.
+Eight actual local game processes and eight public WSS clients were tested.
+The older release connected Carl and a friend. This new release still needs
+a long campaign and multiple physical-computer test.
+
+SAVES, PRIVACY AND SHARING
+Original solo saves: Game/saves. Original online saves: UserData/Online.
+Treasure Shuffle solo saves: UserData/Randomizer/<seed ID>/Game/saves.
+Seeded online saves: UserData/Online/Seeds/<seed ID>. All are backed up before launch.
+Save normally before closing; unsaved progress isn't guaranteed.
+Room codes grant access to open slots. Keep them private. They expire when empty.
+Use the experiment with people you trust. No anti-cheat or automatic reconnect.
+Share the CLEAN release ZIP, never an initialized folder: it contains generated
+Nintendo assets and may contain saves. Every friend supplies their own ROM.
+Unsigned apps may trigger SmartScreen. Verify the source and checksum.
+Do not disable security software globally.
+
+HELP
+Guide: friendly instructions. Activity: details. Open logs: companion.log.
+README.md: technical information. RANDOMIZER.md: seeds and progression protection.
+Validation.txt: what was tested.
+START HERE.html: formatted quick guide. Source/ and Licenses/: code and notices.
+Community project, not affiliated with Nintendo.
+Engine: snesrev / elzo_d. Original launcher: RadzPrower.
+Companion/network additions: Carl Prewitt Jr.

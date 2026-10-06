@@ -1,0 +1,49 @@
+{
+  "version": "0.3.1",
+  "coverage_date": "2026-10-05",
+  "preview": true,
+  "generator": {
+    "seeds": 1000,
+    "option_combinations": 4,
+    "assertions": 22,
+    "every_protected_byte_unchanged": true,
+    "reward_totals_preserved": true
+  },
+  "native_chest_fixtures": {
+    "fixtures": 5,
+    "chest_lookups": 840,
+    "reward_receipts": 260,
+    "actual_engine_functions": true,
+    "shipping_engine_instrumented": false
+  },
+  "network": {
+    "protocol_assertions": 51,
+    "matching_seed_clients": 8,
+    "original_data_peer_refused": true,
+    "public_wss_eight_clients_prior_test": true,
+    "multiple_physical_pc_full_campaign": false
+  },
+  "clean_setup": {
+    "bundled_extraction_exact_match": true,
+    "actual_native_seed_launch": true,
+    "original_rom_modified": false
+  },
+  "public_source_build": {
+    "dotnet_sdk": "10.0.300",
+    "managed_launcher_and_relay_published": true,
+    "online_and_solo_c_engines_compiled": true,
+    "both_source_built_engines_opened_and_exited_normally": true,
+    "packaging_script_and_payload_audit_passed": true,
+    "known_tcc_warnings": ["M_PI redefined", "FORCEINLINE redefined"],
+    "full_playthrough": false
+  },
+  "public_archive": {
+    "name": "ZeldaCompanion-0.3.1-win-x64.zip",
+    "bytes": 154643060,
+    "sha256": "0d3e2885b0036d373bb55bca31e79a1a8a4eb946c6e3a14d2f9b793278bc886e",
+    "native_and_managed_binaries_unchanged_by_public_packaging": true,
+    "unused_upstream_switch_sprite_icon_removed": true
+  },
+  "full_randomized_solo_playthrough": false,
+  "full_multiplayer_playthrough": false
+}
