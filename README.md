@@ -8,6 +8,8 @@ eight-player Internet co-op.**
 [![Source checks](https://github.com/rages4calm/zelda-companion/actions/workflows/checks.yml/badge.svg)](https://github.com/rages4calm/zelda-companion/actions/workflows/checks.yml)
 [![Platform](https://img.shields.io/badge/platform-Windows_x64-203730)](#download-and-play)
 
+**Discord:** `chrono.trigger` (project author)
+
 Built on [snesrev/zelda3](https://github.com/snesrev/zelda3), a native C
 reimplementation. The game runs locally through the native engine, with a portable
 WinForms launcher for setup, controls, music and online rooms. The original
