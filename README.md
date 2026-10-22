@@ -148,3 +148,9 @@ shader components retain their separate licenses.
 An unofficial fan project, with no affiliation with or endorsement by Nintendo.
 No ownership of the original game is claimed. Do not attach ROMs, generated game
 assets, soundtracks, private invitations or unredacted personal logs to issues.
+
+## Community
+
+**[R.A.I.D. — Retro AI Development](https://discord.gg/Ad9BwSzctP)** · a Discord for AI-assisted retro reverse-engineering, decomp & recomp.
+
+I post all my work there. Join to discuss projects, ask questions, and share ideas.
